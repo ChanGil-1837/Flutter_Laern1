@@ -1,4 +1,4 @@
-import 'package:expense/expenses.dart';
+import 'package:expense/widgets/expenses.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Exepense Tracker',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 169, 164, 178)),
         useMaterial3: true,
       ),
       home: const Expenses(),
