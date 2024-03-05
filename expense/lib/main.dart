@@ -1,9 +1,18 @@
 import 'package:expense/widgets/expenses.dart';
 import 'package:flutter/material.dart';
+// import 'package:flutter/services.dart';
 
 void main() {
-  runApp(const MyApp());
+  // WidgetsFlutterBinding.ensureInitialized();
+  // SystemChrome.setPreferredOrientations([
+  //   DeviceOrientation.portraitUp,
+  // ]).then((fn) {
+    runApp(const MyApp());
+  // });
 }
+
+var kColorScheme =
+    ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 140, 171, 229));
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -13,9 +22,20 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Exepense Tracker',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 169, 164, 178)),
-        useMaterial3: true,
+      theme: ThemeData().copyWith(
+        colorScheme: kColorScheme,
+        appBarTheme: const AppBarTheme().copyWith(
+          backgroundColor: kColorScheme.onPrimaryContainer,
+          foregroundColor: Colors.white,
+        ),
+        cardTheme: const CardTheme().copyWith(
+          color: kColorScheme.secondaryContainer,
+          margin: const EdgeInsets.all(10),
+        ),
+        textTheme: ThemeData().textTheme.copyWith(
+            titleLarge: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: kColorScheme.onPrimaryContainer)),
       ),
       home: const Expenses(),
     );
